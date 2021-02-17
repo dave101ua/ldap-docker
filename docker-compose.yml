@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  ldap_osixia:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "389:389"
+    environment:
+      LDAP_LOG_LEVEL: "256"
+      LDAP_ORGANISATION: "MyExample Inc."
+      LDAP_DOMAIN: "yoctu.ovh"
+      LDAP_BASE_DN: ""
+      LDAP_ADMIN_PASSWORD: "admin"
+      LDAP_CONFIG_PASSWORD: "config"
+      LDAP_READONLY_USER: "false"
+      LDAP_READONLY_USER_USERNAME: "readonly"
+      LDAP_READONLY_USER_PASSWORD: "readonly"
+      LDAP_RFC2307BIS_SCHEMA: "false"
+      LDAP_BACKEND: "mdb"
+      LDAP_TLS: "true"
+      KEEP_EXISTING_CONFIG: "false"
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
+      LDAP_SSL_HELPER_PREFIX: "ldap"
